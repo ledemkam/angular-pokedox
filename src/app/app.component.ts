@@ -1,4 +1,5 @@
 import { Component, computed, signal } from '@angular/core';
+import { POKEMON_LIST } from './pokemon-list.fake';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,7 @@ import { Component, computed, signal } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-
-
-
+pokemonList = signal(POKEMON_LIST)
 name = signal("Pikachu");
 life = signal(21);
 size = computed(() => {
