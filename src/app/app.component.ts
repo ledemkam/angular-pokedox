@@ -8,6 +8,8 @@ import { Component, computed, signal } from '@angular/core';
 })
 export class AppComponent {
 
+
+
 name = signal("Pikachu");
 life = signal(21);
 size = computed(() => {

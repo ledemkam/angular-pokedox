@@ -6,11 +6,13 @@
 <p>taille: {{size()}}</p>
 <p>point de vie: {{life()}}</p>
 
-@if (life() < 30) {
 
-  <button (click)="incrementLife()">+</button>
-}@if (life() > 10) {
 
-  <button (click)="decrementLife()">-</button>
-}
+  <button (click)="incrementLife()" [disabled]="life() >= 30">+</button>
+ <button (click)="decrementLife()" [disabled]="life() >= 10">-</button>
+
+<h1>List all Pokemons</h1>
+
+
+
 
