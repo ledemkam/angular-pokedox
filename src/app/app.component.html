@@ -9,7 +9,7 @@
 
     @for (pokemon of pokemonList(); track pokemon.id) {
     <div class="col-4 mb-4">
-      <div class="card mb-4">
+      <div class="card mb-4" appPokemonBorder>
         <div class="row g-0">
           <div class="col-md-4 d-flex align-items-center justify-content-center bg-light">
             <img [src]="pokemon.picture" class="img-fluid rounded-start" [alt]="pokemon.name">
