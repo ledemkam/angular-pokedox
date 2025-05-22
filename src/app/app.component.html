@@ -16,8 +16,9 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">{{pokemon.name}}</h5>
+              <div class="card-title">{{pokemon.name}} </div>
               <p class="card-text">Taille : {{size(pokemon)}}</p>
+              <p class="card-text">cree le : {{pokemon.created | date:'dd/MM/yyyy'}} </p>
               <p class="card-text">Point de vie : {{pokemon.life}}</p>
               <button (click)="incrementLife(pokemon)" [disabled]="pokemon.life >= 30" class="btn btn-success">+</button>
               <button (click)="decrementLife(pokemon)" [disabled]="pokemon.life <= 10" class="btn btn-danger">-</button>
