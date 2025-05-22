@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, input } from '@angular/core';
 
 @Directive({
   selector: '[appPokemonBorder]'
@@ -6,6 +6,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 export class PokemonBorderDirective {
 
   private readonly initialColor: string ;
+  pokemonType = input.required<string>();
 
   constructor(private readonly el: ElementRef) {
     this.initialColor = this.el.nativeElement.style.borderColor;
@@ -15,7 +16,7 @@ export class PokemonBorderDirective {
 
 
   @HostListener('mouseenter') onMouseEnter() {
-    const color = "green";
+    const color = this.getBorderColor();
     this.setBorderColor(color);
   }
 
@@ -26,6 +27,29 @@ export class PokemonBorderDirective {
 
   private setBorderColor(color: string) {
     this.el.nativeElement.style.borderColor = color;
+  }
+
+   private getBorderColor() {
+    switch (this.pokemonType()) {
+      case 'Feu':
+        return '#EF5350';
+      case 'Eau':
+        return '#42A5F5';
+      case 'Plante':
+        return '#66BB6A';
+      case 'Insecte':
+        return '#8d6e63';
+      case 'Vol':
+        return '#90CAF9';
+      case 'Poison':
+        return '#b388ff';
+      case 'Fée':
+        return '#f8bbd0';
+      case 'Electrik':
+        return '#f4ff81';
+      default:
+        return '#303030';
+    }
   }
 
 }
