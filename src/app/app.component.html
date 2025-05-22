@@ -16,7 +16,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <div class="card-title">{{pokemon.name}} </div>
+              <div class="card-title">{{pokemon.name |reverse }} </div>
               <p class="card-text">Taille : {{size(pokemon)}}</p>
               <p class="card-text">cree le : {{pokemon.created | date:'dd/MM/yyyy'}} </p>
               <p class="card-text">Point de vie : {{pokemon.life}}</p>
