@@ -3,15 +3,14 @@ import { Pokemon } from './pokemon.model';
 import { POKEMON_LIST } from './pokemon-list.fake';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PokemonService {
-
- getPokemonList(): Pokemon[] {
-  return POKEMON_LIST
- }
-  getPokemonById(id: number): Pokemon  {
-    const pokemon = POKEMON_LIST.find(pokemon => pokemon.id === id);
+  getPokemonList(): Pokemon[] {
+    return POKEMON_LIST;
+  }
+  getPokemonById(id: number): Pokemon {
+    const pokemon = POKEMON_LIST.find((pokemon) => pokemon.id === id);
     if (!pokemon) {
       throw new Error(`Pokemon with id ${id} not found`);
     }
@@ -21,15 +20,17 @@ export class PokemonService {
 
   getPokemonTypeList(): string[] {
     return [
-      "plante",
-      "feu",
-      "eau",
-      "insecte",
-      "normal",
-      "electrique",
-      "poison",
-      "vol",
-      "fée",
-    ]
+      'plante',
+      'feu',
+      'eau',
+      'insecte',
+      'normal',
+      'electrique',
+      'poison',
+      'vol',
+      'fée',
+    ];
   }
+
+ 
 }

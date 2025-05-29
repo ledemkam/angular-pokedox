@@ -56,4 +56,4 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 ## deploy link :
 
- https://workshop-pokemon-1fac5.web.app
+https://workshop-pokemon-1fac5.web.app
