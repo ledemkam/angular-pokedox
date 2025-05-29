@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { POKEMON_LIST } from './pokemon-list.fake';
 import { Pokemon } from './pokemon.model';
 import { PokemonBorderDirective } from './pokemon-border.directive';
 import { DatePipe } from '@angular/common';
+import { PokemonService } from './pokemon.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { DatePipe } from '@angular/common';
 })
 export class AppComponent {
 pokemonList = signal(POKEMON_LIST)
+readonly #pokemonService = inject(PokemonService)
 
 size (pokemon: Pokemon) {
   if (pokemon.life <=  15) {
