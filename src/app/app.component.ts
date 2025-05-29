@@ -10,10 +10,11 @@ import { PokemonService } from './pokemon.service';
   imports: [PokemonBorderDirective,DatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+ 
 })
 export class AppComponent {
   readonly #pokemonService = inject(PokemonService)
-  pokemonList = signal(this.#pokemonService.getPokemonTypeList());
+  pokemonList = signal(this.#pokemonService.getPokemonList());
 
 size (pokemon: Pokemon) {
   if (pokemon.life <=  15) {
