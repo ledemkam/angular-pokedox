@@ -31,6 +31,4 @@ export class PokemonService {
       'fée',
     ];
   }
-
- 
 }
