@@ -5,17 +5,17 @@ import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-profil',
-  imports: [DatePipe,RouterLink],
+  imports: [DatePipe, RouterLink],
   templateUrl: './pokemon-profil.component.html',
-  styles: ``
+  styles: ``,
 })
 export class PokemonProfilComponent {
   readonly #route = inject(ActivatedRoute);
   readonly #PokemonService = inject(PokemonService);
 
-
   readonly #pokemondId = Number(this.#route.snapshot.paramMap.get('id'));
 
-  readonly pokemon = signal(this.#PokemonService.getPokemonById(this.#pokemondId));
-
+  readonly pokemon = signal(
+    this.#PokemonService.getPokemonById(this.#pokemondId),
+  );
 }

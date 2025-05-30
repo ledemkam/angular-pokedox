@@ -1,5 +1,4 @@
-
-import { inject, computed, Component,  signal} from '@angular/core';
+import { inject, computed, Component, signal } from '@angular/core';
 import { PokemonService } from '../../pokemon.service';
 import { Pokemon } from '../../pokemon.model';
 import { PokemonBorderDirective } from '../../pokemon-border.directive';
@@ -8,9 +7,9 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-list',
-  imports: [PokemonBorderDirective, DatePipe,RouterLink],
+  imports: [PokemonBorderDirective, DatePipe, RouterLink],
   templateUrl: './pokemon-list.component.html',
-  styles: ``
+  styles: ``,
 })
 export class PokemonListComponent {
   readonly #pokemonService = inject(PokemonService);
@@ -41,6 +40,3 @@ export class PokemonListComponent {
     pokemon.life = pokemon.life - 1;
   }
 }
-
-
-

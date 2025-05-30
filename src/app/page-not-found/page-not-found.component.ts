@@ -5,8 +5,6 @@ import { RouterLink } from '@angular/router';
   selector: 'app-page-not-found',
   imports: [RouterLink],
   templateUrl: './page-not-found.component.html',
-  styles: ``
+  styles: ``,
 })
-export class PageNotFoundComponent {
-
-}
+export class PageNotFoundComponent {}

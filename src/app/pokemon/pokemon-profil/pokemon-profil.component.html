@@ -27,16 +27,16 @@
               <tr>
                 <th scope="row">Types</th>
                 <td>
-                  @for(type of pokemon().types; track type) {
-                  <span class="badge rounded-pill bg-secondary me-1">{{
-                    type
-                  }}</span>
+                  @for (type of pokemon().types; track type) {
+                    <span class="badge rounded-pill bg-secondary me-1">{{
+                      type
+                    }}</span>
                   }
                 </td>
               </tr>
               <tr>
                 <th scope="row">Date de création</th>
-                <td>{{ pokemon().created | date : "dd/MM/yyyy" }}</td>
+                <td>{{ pokemon().created | date: "dd/MM/yyyy" }}</td>
               </tr>
             </tbody>
           </table>
