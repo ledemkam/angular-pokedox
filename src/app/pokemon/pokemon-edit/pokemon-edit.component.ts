@@ -7,21 +7,21 @@ import {
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-edit',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, JsonPipe],
   templateUrl: './pokemon-edit.component.html',
   styles: ``,
 })
 export class PokemonEditComponent {
   readonly route = inject(ActivatedRoute);
   readonly pokemonService = inject(PokemonService);
-  readonly pokemonId = signal(
-    Number(this.route.snapshot.paramMap.get('id')),
-  ).asReadonly();
+  readonly pokemonId = 
+    Number(this.route.snapshot.paramMap.get('id'))
   readonly pokemon = signal(
-    this.pokemonService.getPokemonById(this.pokemonId()),
+    this.pokemonService.getPokemonById(this.pokemonId)
   ).asReadonly();
 
   readonly form = new FormGroup({
@@ -32,4 +32,28 @@ export class PokemonEditComponent {
       this.pokemon().types.map((type) => new FormControl(type)),
     ),
   });
+
+  get pokemonTypeList(): FormArray {
+    return this.form.get('types') as FormArray;
+  }
+
+  isPokemonTypeSelected(type: string): boolean {	
+    return !!this.pokemonTypeList.controls.find(
+      (control) => control.value === type
+    );
+  }
+
+  onPokemonTypeChange(type: string, isChecked:boolean) {
+    if (isChecked) {
+      const control = new FormControl(type);
+      this.pokemonTypeList.push(control);
+    }else{
+      const index = this.pokemonTypeList.controls
+         .map((control) => control.value  )
+         .indexOf(type);
+      // Remove the control if it exists       
+        this.pokemonTypeList.removeAt(index);
+  
+    }
+  }
 }
