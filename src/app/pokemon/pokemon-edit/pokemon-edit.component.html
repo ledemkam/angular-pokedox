@@ -11,7 +11,7 @@
         />
       </div>
       <div class="col-md-8">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="card-body">
             <h2 class="card-title">{{ pokemon().name }}</h2>
             <table class="table">
@@ -23,7 +23,7 @@
                       formControlName="name"
                       type="text"
                       class="form-control"
-                      [value]="pokemon().name"
+                      
                       placeholder="Nom du Pokémon"
                     />
                   </td>
@@ -39,7 +39,7 @@
                         formControlName="life"
                         type="number"
                         class="form-control text-center"
-                        [value]="pokemon().life"
+                       
                       />
                       <button class="btn btn-outline-secondary" disabled>
                         +
@@ -58,7 +58,7 @@
                         formControlName="damage"
                         type="number"
                         class="form-control text-center"
-                        [value]="pokemon().damage"
+                       
                       />
                       <button class="btn btn-outline-secondary" disabled>
                         +
@@ -93,7 +93,7 @@
                               formControlName="types"
                               class="form-check-input"
                               type="checkbox"
-                              [value]="type"
+                            
                               [id]="type"
                             />
                             <label class="form-check-label" [for]="type">
@@ -125,6 +125,3 @@
   </div>
 </div>
 
-<pre>
-  {{form.value | json}}
-</pre>

@@ -7,19 +7,17 @@ import {
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-edit',
-  imports: [RouterLink, ReactiveFormsModule, JsonPipe],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './pokemon-edit.component.html',
   styles: ``,
 })
 export class PokemonEditComponent {
   readonly route = inject(ActivatedRoute);
   readonly pokemonService = inject(PokemonService);
-  readonly pokemonId = 
-    Number(this.route.snapshot.paramMap.get('id'))
+  readonly pokemonId = Number(this.route.snapshot.paramMap.get('id'))
   readonly pokemon = signal(
     this.pokemonService.getPokemonById(this.pokemonId)
   ).asReadonly();
@@ -55,5 +53,10 @@ export class PokemonEditComponent {
         this.pokemonTypeList.removeAt(index);
   
     }
+  }
+
+
+  onSubmit() {
+    console.log('Form submitted:', this.form.value);
   }
 }
