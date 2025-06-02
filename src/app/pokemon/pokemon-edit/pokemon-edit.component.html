@@ -64,19 +64,9 @@
                         formControlName="life"
                         type="number"
                         class="form-control text-center"
-                        [class.is-invalid]="pokemonLife.invalid"
+                        readonly
                       />
-                      @if(pokemonLife.hasError('min')) {
-                        <div class="invalid-feedback">
-                          Les points de vie doivent être supérieurs ou égaux à 0.
-
-                        </div>
-                      }@if (pokemonLife.hasError('max')) {
-                        <div class="invalid-feedback">
-                          Les points de vie ne doivent pas dépasser 999.
-                        </div>
-
-                      }
+                     
                       <button
                       class="btn btn-outline-secondary"
                        [disabled]="pokemonLife.value >= POKEMON_RULES.MAX_LIFE"
@@ -103,17 +93,9 @@
                         formControlName="damage"
                         type="number"
                         class="form-control text-center"
-                        [class.is-invalid]="pokemonDamage.invalid"
+                        readonly
                       />
-                      @if(pokemonDamage.hasError('min')) {
-                        <div class="invalid-feedback">
-                          Les dégâts doivent être supérieurs ou égaux à 0.
-                        </div>
-                      }@if (pokemonDamage.hasError('max')) {
-                        <div class="invalid-feedback">
-                          Les dégâts ne doivent pas dépasser 999.
-                        </div>
-                      }
+
                       <button class="btn btn-outline-secondary"
                        [disabled]="pokemonDamage.value >= POKEMON_RULES.MAX_DAMAGE"
                         (click)="incrementDamage()"
