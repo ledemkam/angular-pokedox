@@ -10,7 +10,6 @@ import {
 } from '@angular/forms';
 import { getPokemonColor, POKEMON_RULES } from '../../pokemon.model';
 
-
 @Component({
   selector: 'app-pokemon-edit',
   imports: [RouterLink, ReactiveFormsModule],
@@ -27,7 +26,7 @@ export class PokemonEditComponent {
   readonly POKEMON_RULES = POKEMON_RULES;
 
   readonly form = new FormGroup({
-    name: new FormControl(this.pokemon().name,[
+    name: new FormControl(this.pokemon().name, [
       Validators.required,
       Validators.minLength(POKEMON_RULES.MIN_NAME),
       Validators.maxLength(POKEMON_RULES.MAX_NAME),
@@ -41,7 +40,7 @@ export class PokemonEditComponent {
         Validators.required,
         Validators.minLength(POKEMON_RULES.MIN_TYPES),
         Validators.maxLength(POKEMON_RULES.MAX_TYPES),
-      ]
+      ],
     ),
   });
 
@@ -56,7 +55,7 @@ export class PokemonEditComponent {
     return this.form.get('life') as FormControl;
   }
 
-  incrementLife(){
+  incrementLife() {
     const newValue = this.pokemonLife.value + 1;
     this.pokemonLife.setValue(newValue);
   }
@@ -65,7 +64,6 @@ export class PokemonEditComponent {
     const newValue = this.pokemonLife.value - 1;
     this.pokemonLife.setValue(newValue);
   }
-
 
   get pokemonDamage(): FormControl {
     return this.form.get('damage') as FormControl;
