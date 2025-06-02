@@ -24,7 +24,29 @@
                       type="text"
                       class="form-control"
                       placeholder="Nom du Pokémon"
+                      [class.is-invalid]="pokemonName.invalid"
                     />
+                    @if(pokemonName.hasError('required')) {
+                      <div class="invalid-feedback">
+                        Le nom du Pokémon est requis.
+                      </div>
+                    }@if(pokemonName.hasError('minlength')) {
+                      <div class="invalid-feedback">
+                        Le nom du Pokémon doit contenir au moins 3 caractères.
+                        (Minimum: {{pokemonName.getError('minlength').requiredLength}})
+                      </div>
+                    }@if (pokemonName.hasError('maxlength')) {
+                      <div class="invalid-feedback">
+                        Le nom du Pokémon ne doit pas dépasser 20 caractères.
+                        (Maximum: {{pokemonName.getError('maxlength').requiredLength}})
+                      </div>
+                    }@if (pokemonName.hasError('pattern')) {
+                      <div class="invalid-feedback">
+                        Le nom du Pokémon ne doit contenir que des lettres
+                      </div>
+                    }
+
+
                   </td>
                 </tr>
                 <tr>
@@ -38,7 +60,19 @@
                         formControlName="life"
                         type="number"
                         class="form-control text-center"
+                        [class.is-invalid]="pokemonLife.invalid"
                       />
+                      @if(pokemonLife.hasError('min')) {
+                        <div class="invalid-feedback">
+                          Les points de vie doivent être supérieurs ou égaux à 0.
+
+                        </div>
+                      }@if (pokemonLife.hasError('max')) {
+                        <div class="invalid-feedback">
+                          Les points de vie ne doivent pas dépasser 999.
+                        </div>
+
+                      }
                       <button class="btn btn-outline-secondary" disabled>
                         +
                       </button>
@@ -56,7 +90,17 @@
                         formControlName="damage"
                         type="number"
                         class="form-control text-center"
+                        [class.is-invalid]="pokemonDamage.invalid"
                       />
+                      @if(pokemonDamage.hasError('min')) {
+                        <div class="invalid-feedback">
+                          Les dégâts doivent être supérieurs ou égaux à 0.
+                        </div>
+                      }@if (pokemonDamage.hasError('max')) {
+                        <div class="invalid-feedback">
+                          Les dégâts ne doivent pas dépasser 999.
+                        </div>
+                      }
                       <button class="btn btn-outline-secondary" disabled>
                         +
                       </button>

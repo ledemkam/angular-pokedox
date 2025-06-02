@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import { getPokemonColor, POKEMON_RULES } from '../../pokemon.model';
 
+
 @Component({
   selector: 'app-pokemon-edit',
   imports: [RouterLink, ReactiveFormsModule],
@@ -31,8 +32,16 @@ export class PokemonEditComponent {
       Validators.maxLength(POKEMON_RULES.MAX_NAME),
       Validators.pattern(POKEMON_RULES.NAME_PATTERN),
     ]),
-    life: new FormControl(this.pokemon().life),
-    damage: new FormControl(this.pokemon().damage),
+    life: new FormControl(this.pokemon().life,[
+      Validators.required,
+      Validators.min(POKEMON_RULES.MIN_LIFE),
+      Validators.max(POKEMON_RULES.MAX_LIFE),
+    ]),
+    damage: new FormControl(this.pokemon().damage,[
+      Validators.required,
+      Validators.min(POKEMON_RULES.MIN_DAMAGE),
+      Validators.max(POKEMON_RULES.MAX_DAMAGE),
+    ]),
     types: new FormArray(
       this.pokemon().types.map((type) => new FormControl(type)),
     ),
@@ -40,6 +49,16 @@ export class PokemonEditComponent {
 
   get pokemonTypeList(): FormArray {
     return this.form.get('types') as FormArray;
+  }
+
+  get pokemonName(): FormControl {
+    return this.form.get('name') as FormControl;
+  }
+  get pokemonLife(): FormControl {
+    return this.form.get('life') as FormControl;
+  }
+  get pokemonDamage(): FormControl {
+    return this.form.get('damage') as FormControl;
   }
 
   isPokemonTypeSelected(type: string): boolean {
