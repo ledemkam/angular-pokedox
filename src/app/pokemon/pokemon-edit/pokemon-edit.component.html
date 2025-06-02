@@ -66,7 +66,7 @@
                         class="form-control text-center"
                         readonly
                       />
-                     
+
                       <button
                       class="btn btn-outline-secondary"
                        [disabled]="pokemonLife.value >= POKEMON_RULES.MAX_LIFE"
@@ -126,6 +126,17 @@
                         >
                       </button>
                     }
+                    @if (pokemonTypeList.hasError('required')) {
+                      <p class="text-danger">
+                        Au moins un type de Pokémon est requis.
+                      </p>
+                    }
+                    @if (pokemonTypeList.hasError('maxlength')) {
+                      <p class="text-danger">
+                        choisir plus de type de Pokémon (Maximum: {{pokemonTypeList.getError('maxlength').requiredLength}})
+                      </p>
+                    }
+
                     <div class="row mt-3">
                       @for (
                         type of pokemonService.getPokemonTypeList();
