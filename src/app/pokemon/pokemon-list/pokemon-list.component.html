@@ -23,11 +23,13 @@
     <div class="container mt-4">
       <div class="row">
         @for (pokemon of pokemonListFiltered(); track pokemon.id) {
-          <div class="col-4 mb-4">
+          <div class="col-4 mb-4 pokemond-card" [routerLink]="['/pokemons', pokemon.id]">
             <div
               class="card mb-4"
               appPokemonBorder
               [pokemonType]="pokemon.types[0]"
+
+
             >
               <div class="row g-0">
                 <div
@@ -47,28 +49,11 @@
                       cree le : {{ pokemon.created | date: "dd/MM/yyyy" }}
                     </p>
                     <p class="card-text">Point de vie : {{ pokemon.life }}</p>
-                    <button
-                      (click)="incrementLife(pokemon)"
-                      [disabled]="pokemon.life >= 30"
-                      class="btn btn-success"
-                    >
-                      +
-                    </button>
-                    <button
-                      (click)="decrementLife(pokemon)"
-                      [disabled]="pokemon.life <= 10"
-                      class="btn btn-danger"
-                    >
-                      -
-                    </button>
+
+                    <p class="card-text">Degatrs : {{pokemon.damage}}</p>
+
                   </div>
-                  <p class="card-text">
-                    <a
-                      [routerLink]="['/pokemons', pokemon.id]"
-                      class="test small text-muted"
-                      >Voir les détails</a
-                    >
-                  </p>
+
                 </div>
               </div>
             </div>
