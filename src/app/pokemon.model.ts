@@ -4,11 +4,11 @@ export interface Pokemon {
   picture: string;
   life: number;
   damage: number;
-  types: [string] | [string, string] | [string, string, string];
+  types: [string, string?, string?];
   created: Date;
 }
 
-export function getPokemonColor(type: string): string {
+export function getPokemonColor(type: string) {
   switch (type) {
     case 'Feu':
       return '#EF5350';
@@ -30,3 +30,19 @@ export function getPokemonColor(type: string): string {
       return '#303030';
   }
 }
+
+//pokemon validation rules
+
+export const POKEMON_RULES = {
+  NAME_PATTERN: /^[a-zA-Zéè]+$/,
+  MAX_NAME: 20,
+  MIN_NAME: 3,
+  MAX_LIFE: 30,
+  HIGH_LIFE: 25,
+  LOW_LIFE: 15,
+  MIN_LIFE: 10,
+  MAX_DAMAGE: 10,
+  MIN_DAMAGE: 1,
+  MIN_TYPES: 1,
+  MAX_TYPES: 3,
+} as const;
