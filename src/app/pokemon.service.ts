@@ -13,10 +13,21 @@ export class PokemonService {
   getPokemonList(): Observable<Pokemon[]> {
     return this.#http.get<Pokemon[]>(this.#POKEMON_API_URL);
   }
+
   getPokemonById(id: number): Observable<Pokemon> {
     const url = `${this.#POKEMON_API_URL}/${id}`;
     return this.#http.get<Pokemon>(url);
   }
+
+  updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
+    const url = `${this.#POKEMON_API_URL}/${pokemon.id}`;
+    return this.#http.put<Pokemon>(url, pokemon);
+  }
+
+
+
+
+
 
   getPokemonTypeList(): string[] {
     return [

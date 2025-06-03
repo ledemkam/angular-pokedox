@@ -31,7 +31,7 @@ export class PokemonEditComponent {
           catchError((error) => of({
             value : undefined,
             error : error
-          })) 
+          }))
         )
       );
   readonly loading = computed(() => this.#pokemonResponse() === undefined);
@@ -139,6 +139,26 @@ export class PokemonEditComponent {
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    const isFormValid = this.form.valid;
+    const currentPokemon = this.pokemon();
+
+    if (isFormValid && currentPokemon) {
+      const updatedPokemon = {
+        ...currentPokemon,
+        name: this.pokemonName.value,
+        life: Number(this.pokemonLife.value),
+        damage: Number(this.pokemonDamage.value),
+        types: this.pokemonTypeList.value,
+      };
+
+      this.pokemonService
+        .updatePokemon(updatedPokemon)
+        .subscribe(() => {
+          // Navigate back to the Pokemon list or detail page after successful update
+          window.history.back();
+        });
+    } else {
+      console.error('Form is invalid or Pokemon data is missing');
+    }
   }
 }
