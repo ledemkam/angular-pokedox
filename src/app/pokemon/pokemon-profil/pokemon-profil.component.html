@@ -62,9 +62,14 @@
       </div>
     </div>
   </div>
-}  @else {
+} @if(loading()) {
     <div class="spinner-border text-success mx-auto" role="status">
       <p class="visually-hidden">Chargement des Pokémons...</p>
+    </div>
+  }
+  @if(error()) {
+    <div class="alert alert-danger" role="alert">
+      Une erreur est survenue lors du chargement du Pokémon.
     </div>
   }
 </div>
