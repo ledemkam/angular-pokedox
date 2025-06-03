@@ -206,14 +206,15 @@
         </div>
       </div>
     </div>
-  } @if(loading()) {
+  }
+  @if (loading()) {
     <div class="spinner-border text-success mx-auto" role="status">
       <p class="visually-hidden">Chargement des Pokémons...</p>
     </div>
   }
-  @if(error()) {
+  @if (error()) {
     <div class="alert alert-danger" role="alert">
-      Une erreur est survenue lors du chargement pour l edit  du Pokémon.
+      Une erreur est survenue lors du chargement pour l edit du Pokémon.
     </div>
   }
 </div>

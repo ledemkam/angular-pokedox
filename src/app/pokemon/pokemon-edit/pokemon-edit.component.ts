@@ -20,20 +20,23 @@ import { catchError, map, of } from 'rxjs';
 })
 export class PokemonEditComponent {
   readonly route = inject(ActivatedRoute);
+
   readonly pokemonService = inject(PokemonService);
   readonly pokemonId = Number(this.route.snapshot.paramMap.get('id'));
   readonly #pokemonResponse = toSignal(
     this.pokemonService.getPokemonById(this.pokemonId).pipe(
-          map((pokemon) => ({
-            value : pokemon,
-            error : undefined
-          })),
-          catchError((error) => of({
-            value : undefined,
-            error : error
-          }))
-        )
-      );
+      map((pokemon) => ({
+        value: pokemon,
+        error: undefined,
+      })),
+      catchError((error) =>
+        of({
+          value: undefined,
+          error: error,
+        }),
+      ),
+    ),
+  );
   readonly loading = computed(() => this.#pokemonResponse() === undefined);
   readonly error = computed(() => this.#pokemonResponse()?.error);
   readonly pokemon = computed(() => this.#pokemonResponse()?.value);
@@ -151,12 +154,9 @@ export class PokemonEditComponent {
         types: this.pokemonTypeList.value,
       };
 
-      this.pokemonService
-        .updatePokemon(updatedPokemon)
-        .subscribe(() => {
-          // Navigate back to the Pokemon list or detail page after successful update
-          window.history.back();
-        });
+      this.pokemonService.updatePokemon(updatedPokemon).subscribe(() => {
+        window.history.back();
+      });
     } else {
       console.error('Form is invalid or Pokemon data is missing');
     }
