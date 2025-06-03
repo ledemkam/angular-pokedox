@@ -1,7 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PokemonService } from '../../pokemon.service';
 import { DatePipe } from '@angular/common';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-pokemon-profil',
@@ -15,7 +16,7 @@ export class PokemonProfilComponent {
 
   readonly #pokemondId = Number(this.#route.snapshot.paramMap.get('id'));
 
-  readonly pokemon = signal(
+  readonly pokemon = toSignal(
     this.#PokemonService.getPokemonById(this.#pokemondId),
   );
 }
