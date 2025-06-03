@@ -14,7 +14,7 @@ export class PokemonService {
     return this.#http.get<Pokemon[]>(this.#POKEMON_API_URL);
   }
   getPokemonById(id: number): Observable<Pokemon> {
-    const url = `${this.#POKEMON_API_URL}/${id}`; //or this.#POKEMON_API_URL + '/' + id;
+    const url = this.#POKEMON_API_URL + '/' + id;
     return this.#http.get<Pokemon>(url);
   }
 
