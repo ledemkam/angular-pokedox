@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PokemonService {
+  pipe(arg0: any, arg1: any): any {
+    throw new Error('Method not implemented.');
+  }
   readonly #POKEMON_API_URL = 'http://localhost:3000/pokemons';
   readonly #http = inject(HttpClient);
 

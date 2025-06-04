@@ -112,6 +112,56 @@
         "Feu"
       ],
       "created": "2024-08-16T00:00:00Z"
+    },
+    {
+      "id": "dc61",
+      "name": "pokeomMe",
+      "picture": "https://unsplash.com/de/fotos/rot-weisses-rundes-plastikspielzeug-emg8puH9Smc",
+      "life": 10,
+      "damage": 2,
+      "types": [
+        "Normal",
+        "electrique",
+        "fée"
+      ],
+      "created": "2025-06-04T14:16:29.528Z"
+    },
+    {
+      "id": "e8a4",
+      "name": "pokemonnew",
+      "picture": "https://pixabay.com/de/illustrations/pok%C3%A9mon-ball-pokemon-gehen-1530315/",
+      "life": 10,
+      "damage": 1,
+      "types": [
+        "Normal",
+        "insecte"
+      ],
+      "created": "2025-06-04T14:18:44.540Z"
+    },
+    {
+      "id": "8a08",
+      "name": "Pokemon",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/038.png",
+      "life": 11,
+      "damage": 2,
+      "types": [
+        "Normal",
+        "feu"
+      ],
+      "created": "2025-06-04T14:22:07.822Z"
+    },
+    {
+      "id": "3646",
+      "name": "Dokemon",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/137.png",
+      "life": 15,
+      "damage": 7,
+      "types": [
+        "Normal",
+        "feu",
+        "electrique"
+      ],
+      "created": "2025-06-04T14:28:02.134Z"
     }
   ]
 }
