@@ -1,3 +1,5 @@
+
+
 export interface Pokemon {
   id: number;
   name: string;
@@ -46,3 +48,6 @@ export const POKEMON_RULES = {
   MIN_TYPES: 1,
   MAX_TYPES: 3,
 } as const;
+
+
+export type PokemonList = Pokemon[];

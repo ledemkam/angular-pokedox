@@ -1,7 +1,6 @@
-import { Component,  inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { PokemonService } from '../../pokemon.service';
 import { getPokemonColor, Pokemon, POKEMON_RULES } from '../../pokemon.model';
-
 
 import {
   FormArray,
@@ -10,24 +9,21 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router,RouterLink} from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-add',
   standalone: true,
   imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './pokemon-add.component.html',
-  styleUrl: './pokemon-add.component.css'
+  styleUrl: './pokemon-add.component.css',
 })
-
 export class PokemonAddComponent {
   readonly router = inject(Router);
   readonly pokemonService = inject(PokemonService);
   readonly POKEMON_RULES = signal(POKEMON_RULES).asReadonly();
 
-
-
- readonly form = new FormGroup({
+  readonly form = new FormGroup({
     name: new FormControl('', [
       Validators.required,
       Validators.minLength(POKEMON_RULES.MIN_NAME),
@@ -37,14 +33,18 @@ export class PokemonAddComponent {
     picture: new FormControl('', [Validators.required]),
     life: new FormControl(10),
     damage: new FormControl(1),
-    types: new FormArray([new FormControl('Normal')], [Validators.required, Validators.maxLength(3)]),
+    types: new FormArray(
+      [new FormControl('Normal')],
+      [Validators.required, Validators.maxLength(3)],
+    ),
   });
 
+  onSubmit() {
+    Object.values(this.form.controls).forEach((control) =>
+      control.markAsDirty(),
+    );
 
-   onSubmit() {
-    Object.values(this.form.controls).forEach(control => control.markAsDirty());
-
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       return;
     }
 
@@ -53,8 +53,12 @@ export class PokemonAddComponent {
       picture: this.pokemonPicture.value,
       life: this.pokemonLife.value,
       damage: this.pokemonDamage.value,
-      types: this.pokemonTypeList.controls.map(control => control.value) as [string, string?, string?],
-      created: new Date()
+      types: this.pokemonTypeList.controls.map((control) => control.value) as [
+        string,
+        string?,
+        string?,
+      ],
+      created: new Date(),
     };
 
     this.pokemonService.addPokemon(pokemon).subscribe((pokemonAdded) => {
@@ -108,7 +112,7 @@ export class PokemonAddComponent {
 
   isPokemonTypeSelected(type: string) {
     return !!this.pokemonTypeList.controls.find(
-      (control) => control.value === type
+      (control) => control.value === type,
     );
   }
 

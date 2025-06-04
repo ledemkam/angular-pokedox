@@ -6,9 +6,7 @@
       "life": 28,
       "damage": 6,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png",
-      "types": [
-        "Feu"
-      ],
+      "types": ["Feu"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -17,9 +15,7 @@
       "life": 21,
       "damage": 4,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",
-      "types": [
-        "Eau"
-      ],
+      "types": ["Eau"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -28,10 +24,7 @@
       "life": 16,
       "damage": 2,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/013.png",
-      "types": [
-        "Insecte",
-        "Poison"
-      ],
+      "types": ["Insecte", "Poison"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -40,10 +33,7 @@
       "life": 30,
       "damage": 7,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/016.png",
-      "types": [
-        "Normal",
-        "Vol"
-      ],
+      "types": ["Normal", "Vol"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -52,10 +42,7 @@
       "life": 14,
       "damage": 5,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/021.png",
-      "types": [
-        "Normal",
-        "Vol"
-      ],
+      "types": ["Normal", "Vol"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -64,9 +51,7 @@
       "life": 16,
       "damage": 4,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/023.png",
-      "types": [
-        "Poison"
-      ],
+      "types": ["Poison"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -75,9 +60,7 @@
       "life": 21,
       "damage": 7,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
-      "types": [
-        "Electrik"
-      ],
+      "types": ["Electrik"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -86,9 +69,7 @@
       "life": 19,
       "damage": 3,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
-      "types": [
-        "Normal"
-      ],
+      "types": ["Normal"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -97,9 +78,7 @@
       "life": 25,
       "damage": 5,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/035.png",
-      "types": [
-        "Fée"
-      ],
+      "types": ["Fée"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -108,9 +87,7 @@
       "life": 17,
       "damage": 8,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
-      "types": [
-        "Feu"
-      ],
+      "types": ["Feu"],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -119,11 +96,7 @@
       "picture": "https://unsplash.com/de/fotos/rot-weisses-rundes-plastikspielzeug-emg8puH9Smc",
       "life": 10,
       "damage": 2,
-      "types": [
-        "Normal",
-        "electrique",
-        "fée"
-      ],
+      "types": ["Normal", "electrique", "fée"],
       "created": "2025-06-04T14:16:29.528Z"
     },
     {
@@ -132,10 +105,7 @@
       "picture": "https://pixabay.com/de/illustrations/pok%C3%A9mon-ball-pokemon-gehen-1530315/",
       "life": 10,
       "damage": 1,
-      "types": [
-        "Normal",
-        "insecte"
-      ],
+      "types": ["Normal", "insecte"],
       "created": "2025-06-04T14:18:44.540Z"
     },
     {
@@ -144,10 +114,7 @@
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/038.png",
       "life": 11,
       "damage": 2,
-      "types": [
-        "Normal",
-        "feu"
-      ],
+      "types": ["Normal", "feu"],
       "created": "2025-06-04T14:22:07.822Z"
     },
     {
@@ -156,11 +123,7 @@
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/137.png",
       "life": 15,
       "damage": 7,
-      "types": [
-        "Normal",
-        "feu",
-        "electrique"
-      ],
+      "types": ["Normal", "feu", "electrique"],
       "created": "2025-06-04T14:28:02.134Z"
     }
   ]
