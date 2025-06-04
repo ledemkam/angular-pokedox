@@ -22,7 +22,7 @@ export class PokemonJSONServerService implements PokemonService {
   updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
     return this.http.put<Pokemon>(
       `${this.POKEMON_API_URL}/${pokemon.id}`,
-      pokemon
+      pokemon,
     );
   }
 

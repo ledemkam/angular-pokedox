@@ -13,7 +13,6 @@ import { environment } from '../environments/environment';
 import { PokemonLocalStorageService } from './pokemon-local-storage.service';
 import { PokemonJSONServerService } from './pokemon-json-server.service';
 
-
 export function pokemonServiceFactory(): PokemonService {
   return environment.production
     ? new PokemonLocalStorageService()
@@ -69,7 +68,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
-       {
+    {
       provide: PokemonService,
       useFactory: pokemonServiceFactory,
     },

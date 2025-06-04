@@ -133,7 +133,7 @@ export class PokemonLocalStorageService implements PokemonService {
       ];
       localStorage.setItem(
         this.localStorageKey,
-        JSON.stringify(initialPokemons)
+        JSON.stringify(initialPokemons),
       );
     }
   }
